@@ -3,9 +3,9 @@ const { poolClimate } = require('../config/database');
 
 // 10 data terakhir microclimate bulan April 2025
 exports.getLast10Micro = async (simDateStr = null) => {
-  // Mengurangi 48 hari dari tanggal sekarang
+  // Mengurangi 87 hari dari tanggal sekarang
   const nowWIB = moment.tz('Asia/Jakarta');
-  const targetDate = nowWIB.subtract(48, 'days');  // Mengurangi 48 hari dari tanggal sekarang
+  const targetDate = nowWIB.subtract(87, 'days');  // Mengurangi 87 hari dari tanggal sekarang
   const simDate = targetDate.format('YYYY-MM-DD HH:mm:ss');  // Menggunakan waktu lokal setelah pengurangan
   
   const start = '2025-04-01 00:00:00';
@@ -32,9 +32,9 @@ exports.getLast10Micro = async (simDateStr = null) => {
 
 // Simulasi tolerant (hanya field utama)
 exports.getSimulatedMicro = async (simDateStr, toleranceSec = 300) => {
-  // Mengurangi 48 hari dari tanggal sekarang
+  // Mengurangi 87 hari dari tanggal sekarang
   const nowWIB = moment.tz('Asia/Jakarta');
-  const targetDate = nowWIB.subtract(48, 'days');  // Mengurangi 48 hari dari tanggal sekarang
+  const targetDate = nowWIB.subtract(87, 'days');  // Mengurangi 87 hari dari tanggal sekarang
   const simDate = targetDate.format('YYYY-MM-DD HH:mm:ss');  // Menggunakan waktu lokal setelah pengurangan
 
   const { rows } = await poolClimate.query(
