@@ -5,9 +5,9 @@ const { Parser } = require('json2csv');
 // 10 data terakhir berdasarkan waktu sekarang
 exports.getMicroLast10 = async (req, res) => {
   try {
-    // Mengurangi 87 hari untuk mendapatkan tanggal yang tepat
+    // Mengurangi 112 hari untuk mendapatkan tanggal yang tepat
     const now = moment();  // Waktu lokal saat ini
-    const targetDate = now.subtract(87, 'days');  // Mengurangi 87 hari dari tanggal sekarang
+    const targetDate = now.subtract(112, 'days');  // Mengurangi 112 hari dari tanggal sekarang
     const simDateStr = targetDate.format('YYYY-MM-DD HH:mm:ss');  // Menggunakan waktu lokal saat ini setelah pengurangan
 
     const rows = await microclimateService.getLast10Micro(simDateStr);  // Panggil service dengan simDateStr
@@ -32,9 +32,9 @@ exports.getMicroLast10 = async (req, res) => {
 
 exports.getRealtimeSimulatedMicro = async (req, res) => {
   try {
-    // Mengurangi 87 hari untuk mendapatkan tanggal yang tepat
+    // Mengurangi 112 hari untuk mendapatkan tanggal yang tepat
     const now = moment();  // Waktu lokal saat ini
-    const targetDate = now.subtract(87, 'days');  // Mengurangi 87 hari dari tanggal sekarang
+    const targetDate = now.subtract(112, 'days');  // Mengurangi 112 hari dari tanggal sekarang
     const simDateStr = targetDate.format('YYYY-MM-DD HH:mm:ss');  // Menggunakan waktu lokal saat ini setelah pengurangan
 
     const toleranceSec = 300;  // Toleransi 5 menit
@@ -105,3 +105,4 @@ exports.downloadMicroRange = async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 };
+
